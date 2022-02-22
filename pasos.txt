@@ -1,0 +1,29 @@
+crear package.json
+    npm init -y
+
+agregar nodemon
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "nodemon index.js",
+        "start": "node index.js"
+     },
+
+    npm run dev
+
+instalaciones paquetes
+    bcryptjs - encriptacion y has contraseñas 
+    cors - peticiones
+    dotenv - variables de entorno
+    express - montar servicio rest 
+    express-validator - validaciones en express
+    jsonwebtoken - generar token
+    mongoose - bd mongo
+        npm i bcryptjs cors dotenv express express-validator jsonwebtoken mongoose
+
+crear routes/auth.js
+
+crear controllers/auth.js
+
+crear .env
+
+crear carpeta public
