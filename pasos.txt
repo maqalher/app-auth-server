@@ -27,3 +27,15 @@ crear controllers/auth.js
 crear .env
 
 crear carpeta public
+
+crear carpeta middlewares
+    validar-campos.js
+
+crear carpeta db
+    config.js
+
+crear carpeta models
+    Usuario.js
+
+crear carpeta helpers
+    jwt.js
