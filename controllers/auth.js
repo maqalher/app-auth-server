@@ -49,6 +49,7 @@ const crearUsuario = async(req, res = response) => {
             ok: true,
             uid: dbUser.id,
             name,
+            email,
             token
         })
         
@@ -74,7 +75,8 @@ const loginUsuario = async(req, res = response) => {
         if(!dbUser) {
             return res.status(400).json({
                 ok: false,
-                msg: 'El correo no existe'
+                msg: 'El correo no existe',
+                email
             })
         }
 
@@ -96,6 +98,7 @@ const loginUsuario = async(req, res = response) => {
             ok: true,
             uid: dbUser.id,
             name: dbUser.name,
+            email: dbUser.email,
             token
         })
         
@@ -121,15 +124,19 @@ const revalidarToken = async(req, res = response) => {
     // }
 
     // viende del middlewear validar-jwt
-    const { uid, name } = req;
+    const { uid } = req;
+
+    // Leer la BD
+    const dbUser = await Usuario.findById(uid);
 
     // Generar JWT
-    const token = await generarJWT(uid, name);
+    const token = await generarJWT(uid, dbUser.name);
 
     return res.json({
         ok: true,
         uid, 
-        name,
+        name: dbUser.name,
+        email: dbUser.email,
         token
     });
 
